@@ -1,8 +1,3 @@
-## 赞助商广告
-<a href="https://www.huobi.bi/zh-cn/topic/invited/?invite_code=qpi54">
-<img width="auto" height="100" src="/doc/images/zanzhu-1.png"/>
-</a>
-
 ## GOPROXY简介
 <img src="https://cdn.jsdelivr.net/gh/snail007/goproxy@master/doc/images/logo.jpg" width="200" height="auto"/>  
 一款轻量级、功能强大、高性能的http代理、https代理、socks5代理、内网穿透代理服务器、ss代理、游戏盾、游戏代理，支持API代理认证。websocke代理、tcp代理、udp代理、socket代理、高防服务器。支持正向代理、反向代理、透明代理、TCP内网穿透、UDP内网穿透、HTTP内网穿透、HTTPS内网穿透、https代理负载均衡、http代理负载均衡、socks5代理负载均衡、socket代理负载均衡、ss代理负载均衡、TCP/UDP端口映射、SSH中转、TLS加密传输、协议转换、防污染DNS代理，限速，限连接数。官方QQ交流群: 42805407。 
@@ -48,7 +43,7 @@
 - 通讯加密，如果程序不是一级代理，而且上级代理也是本程序，那么可以加密和上级代理之间的通讯，采用底层tls高强度加密，安全无特征。  
 - 智能HTTP代理，HTTPS代理，SOCKS5代理，会自动判断访问的网站是否屏蔽，如果被屏蔽那么就会使用上级代理(前提是配置了上级代理)访问网站;如果访问的网站没有被屏蔽，为了加速访问，代理会直接访问网站，不使用上级代理。  
 - 域名黑白名单，更加自由的控制网站的访问方式。  
-- 跨平台性，无论你是widows，linux，还是mac，甚至是树莓派，都可以很好的运行proxy。  
+- 跨平台性，无论你是windows，linux，还是mac，甚至是树莓派，都可以很好的运行proxy。  
 - 多协议支持，支持HTTP(S)，TCP，UDP，Websocket，SOCKS5代理。  
 - TCP/UDP端口转发。 
 - 游戏盾，游戏代理，高防服务器。 
@@ -758,7 +753,7 @@ HTTP(S)代理支持上级负载均衡，多个上级重复-P参数即可。
 
 ### 1.18 智能模式  
 智能模式设置，可以是intelligent|direct|parent三者之一。  
-默认是:intelligent。  
+默认是:parent。  
 每个值的含义如下:  
 `--intelligent=direct`，不在blocked里面的目标都直连。  
 `--intelligent=parent`，不在direct里面的目标都走上级。  
@@ -1424,7 +1419,7 @@ SOCKS5支持级联认证，-A可以设置上级认证信息。
 
 ### 5.17 智能模式  
 智能模式设置，可以是intelligent|direct|parent三者之一。  
-默认是:intelligent。  
+默认是:parent。  
 每个值的含义如下:  
 `--intelligent=direct`，不在blocked里面的目标都直连。  
 `--intelligent=parent`，不在direct里面的目标都走上级。  
@@ -2031,15 +2026,21 @@ proxy会把连接使用的流量上报到这个地址,具体情况是,proxy发�
 
 下面是一个完整的URL请求实例:   
 
-`http://127.0.0.1:33088/user/traffic?bytes=337&client_addr=127.0.0.1%3A51035&id=http&server_addr=127.0.0.1%3A33088&target_addr=myip.ipip.net%3A80&username=a`  
+`http://127.0.0.1:8080/auth.php?act=traffic&bytes=7627&client_addr=127.0.0.1%3A63637
+&id=http&out_local_addr=127.0.0.1%3A63640&out_remote_addr=127.0.0.1%3A63639
+&server_addr=127.0.0.1%3A33080&target_addr=www.baidu.com%3A443
+&upstream=http%3A%2F%2F127.0.0.1%3A3100&username=a`  
 
 请求参数说明:
-id: 服务id标志.  
-server_addr: 客户端请求的代理地址,格式: `IP:端口`.  
-client_addr: 客户端地址,格式: `IP:端口`.  
-target_addr: 目标地址,格式: `IP:端口`,tcp/udp代理时,这个是空.  
-username: 代理认证用户名,tcp/udp代理时,这个是空.  
-bytes: 此次使用的流量字节数.  
+id: 服务id标志。  
+server_addr: 客户端请求的代理地址,格式: `IP:端口`。  
+client_addr: 客户端地址,格式: `IP:端口`。  
+target_addr: 目标地址,格式: `IP:端口`,tcp/udp代理时,这个是空。  
+username: 代理认证用户名,tcp/udp代理时,这个是空。  
+bytes: 此次使用的流量字节数。  
+out_local_addr: 代理对外建立的TCP连接的本地地址，格式: `IP:端口`。  
+out_remote_addr: 代理对外建立的TCP连接的远程地址，格式: `IP:端口`。  
+upstream: 使用的上级，格式是标准URL格式，如果没有使用上级，这里是空。  
 
 #### 提示  
 

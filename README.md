@@ -1,8 +1,3 @@
-## Advertisement
-<a href="https://www.huobi.bi/zh-cn/topic/invited/?invite_code=qpi54">
-<img width="auto" height="100" src="/doc/images/zanzhu-1.png"/>
-</a>
-
 ## GOPROXY Introduction
 <img src="https://cdn.jsdelivr.net/gh/snail007/goproxy@master/doc/images/logo.jpg" width="200" height="auto"/>
 The GoProxy is a high-performance http proxy, https proxy, socks5 proxy, ss proxy, websocket proxies, tcp proxies, udp proxies,  game shield, game proxies. Support forward proxies, reverse proxy, transparent proxy, internet nat proxies, https proxy load balancing, http proxy load balancing , socks5 proxies load balancing, socket proxy load balancing, ss proxy load balancing, TCP / UDP port mapping, SSH transit, TLS encrypted transmission, protocol conversion, anti-pollution DNS proxy, API authentication, speed limit, limit connection. Reverse proxies to help you expose a local server behind a NAT or firewall to the internet so that you or your visitors can access it directly and easily. 
@@ -36,7 +31,7 @@ And ProxyAdmin is a powerful web console of snail007/goproxy .
 - Communication encryption, if the program is not a level one proxies, and the upper level proxies is also the program, then the communication between the upper level proxies and the upper level proxies can be encrypted, and the underlying tls high-intensity encryption is used, and the security is featureless.
 - Smart HTTP, SOCKS5 proxy, will automatically determine whether the visited website is blocked. If it is blocked, it will use the upstream proxies (provided that the upstream proxies is configured) to access the website; if the visited website is not blocked, in order to speed up the access, the proxies will Direct access to the website without using a upstream proxies.
 - Domain name black and white list, more free to control the way the website is accessed.
-- Cross-platform, whether you are widows, linux, mac, or even raspberry pie, you can run the proxy very well.
+- Cross-platform, whether you are windows, linux, mac, or even raspberry pie, you can run the proxy very well.
 - Multi-protocol support, support for HTTP(S), TCP, UDP, Websocket, SOCKS5 proxy.
 - TCP/UDP port forwarding.
 - Support intranet penetration, protocol supports TCP and UDP.
@@ -710,7 +705,7 @@ If it is the beginning of base64://, then the latter data is considered to be ba
 
 ### 1.18 Intelligent mode  
 Intelligent mode setting, can be one of intelligent|direct|parent.  
-The default is: intelligent.  
+The default is: parent.  
 The meaning of each value is as follows:  
 `--intelligent=direct`, the targets in the blocked are not directly connected.  
 `--intelligent=parent`, the target that is not in the direct is going to the higher level.  
@@ -1333,7 +1328,7 @@ If it is the beginning of base64://, then the latter data is considered to be ba
 
 ### 5.17 Intelligent mode  
 Intelligent mode setting, can be one of intelligent|direct|parent.  
-The default is: intelligent.  
+The default is: parent.  
 The meaning of each value is as follows:  
 `--intelligent=direct`, the targets in the blocked are not directly connected.  
 `--intelligent=parent`, the target that is not in the direct is going to the higher level.  
@@ -1926,12 +1921,15 @@ The following is a complete URL request example:
 `http://127.0.0.1:33088/user/traffic?bytes=337&client_addr=127.0.0.1%3A51035&id=http&server_addr =127.0.0.1%3A33088&target_addr=myip.ipip.net%3A80&username=a`
 
 Request parameter description:
-id: service id flag.
-server_addr: proxies's address requested by the client, format: IP: port.
-client_addr: client address, format: IP: port.
-target_addr: target address, format: "IP: port", when tcp / udp proxy, this is empty.
-User name: proxy authentication user name, this is empty when tcp / udp proxy.
-bytes: the number of traffic bytes used by the user.
+id: service id flag. 
+server_addr: proxies's address requested by the client, format: IP: port. 
+client_addr: client address, format: IP: port. 
+target_addr: target address, format: "IP: port", when tcp / udp proxy, this is empty. 
+User name: proxy authentication user name, this is empty when tcp / udp proxy. 
+bytes: the number of traffic bytes used by the user. 
+out_local_addr: outgoing tcp connection's local address,format: IP: port. 
+out_remote_addr: outgoing tcp connection's remote address,format: IP: port. 
+upstream: upstream used by outgoing tcp connection, if none upstream be used, it's empty. 
 
 #### Tips
 

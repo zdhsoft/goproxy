@@ -505,7 +505,7 @@ If it is the beginning of base64://, then the latter data is considered to be ba
 
 ### 1.18 Intelligent mode  
 Intelligent mode setting, can be one of intelligent|direct|parent.  
-The default is: intelligent.  
+The default is: parent.  
 The meaning of each value is as follows:  
 `--intelligent=direct`, the targets in the blocked are not directly connected.  
 `--intelligent=parent`, the target that is not in the direct is going to the higher level.  
@@ -1128,7 +1128,7 @@ If it is the beginning of base64://, then the latter data is considered to be ba
 
 ### 5.17 Intelligent mode  
 Intelligent mode setting, can be one of intelligent|direct|parent.  
-The default is: intelligent.  
+The default is: parent.  
 The meaning of each value is as follows:  
 `--intelligent=direct`, the targets in the blocked are not directly connected.  
 `--intelligent=parent`, the target that is not in the direct is going to the higher level.  
@@ -1721,12 +1721,15 @@ The following is a complete URL request example:
 `http://127.0.0.1:33088/user/traffic?bytes=337&client_addr=127.0.0.1%3A51035&id=http&server_addr =127.0.0.1%3A33088&target_addr=myip.ipip.net%3A80&username=a`
 
 Request parameter description:
-id: service id flag.
-server_addr: proxies's address requested by the client, format: IP: port.
-client_addr: client address, format: IP: port.
-target_addr: target address, format: "IP: port", when tcp / udp proxy, this is empty.
-User name: proxy authentication user name, this is empty when tcp / udp proxy.
-bytes: the number of traffic bytes used by the user.
+id: service id flag. 
+server_addr: proxies's address requested by the client, format: IP: port. 
+client_addr: client address, format: IP: port. 
+target_addr: target address, format: "IP: port", when tcp / udp proxy, this is empty. 
+User name: proxy authentication user name, this is empty when tcp / udp proxy. 
+bytes: the number of traffic bytes used by the user. 
+out_local_addr: outgoing tcp connection's local address,format: IP: port. 
+out_remote_addr: outgoing tcp connection's remote address,format: IP: port. 
+upstream: upstream used by outgoing tcp connection, if none upstream be used, it's empty. 
 
 #### Tips
 
